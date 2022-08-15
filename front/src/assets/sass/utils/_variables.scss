@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Edu+TAS+Beginner:wght@400;600&family=Londrina+Shadow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dancing+Script:wght@400;500;600&family=Londrina+Shadow&display=swap');
+
+$headerFont: 'Dancing Script';
+$ressourceFont: 'Courier New';
+
+
+$appWidth: 1280px;
+$mainHeight: 78%;
+$carouselWidth: 78%;
+$searchBarMinWidth: 350px;
+$searchBarMaxWidth: 300%;
+
+$footerBgColor:#5f5f5f;
+$footerInputColor: black;
+// $footerTextColor: #e6e6e6;
+$greetingsTextColor: #e2d1c3;
+$footerTextColor: #e2d1c3;
+$footerBorderColor: #e2d1c3;
+$footerShadowColor: #e2d1c3;
+// $editText: #222222;
+// $borderColor: #222222;
+$editText: #e6e6e6;
+$aboutTextColor: black;
+$borderColor: #e6e6e6;
+$oddBgImage: linear-gradient(to left, #fdfcfb 0%, #e2d1c3 100%);
+$evenBgImage: linear-gradient(to right, #fdfcfb 0%, #e2d1c3 100%);
+$evenBgColor: black;
+$memberTextColor: white;
+$aboutLink: gray;
+// $buttonColorHover: darkorchid;
+$cardBorder: darkorchid;
+$routesBgColor: whitesmoke;
+$routesContentBgColor: white;
+$ressourceTypeColor: darkorchid;
+$ressourceListBg: #d4d4d4;
+$buttonHoverColor: gold;
+$verbBgColor: steelblue;
+$getBgColor: #62affc;
+$postBgColor: #47cb90;
+$putBgColor: #fba033;
+$deleteBgColor: #f83e3d;
+$verbTextColor: white;
+$uriTextColor: #222222;
+// --------------------
+$appBgColor: #4b5563;
+$inputBgColor: #ffffff;
+$inputBorder: #222222;
+// $editText: #222222;
+$warningTextColor: red;
+$warningBgColor: pink;
+$successTextColor: green;
+$successBgColor: #affdaf;
+
+$neonColor: #0fa;
+// $neonColor: #f09;
+
+$margin: 10px;
+$borderRadius: 10px;
+$padding: 5px;
+
+$copyrightFontSize: 11px;
+
+$listWidth: 250px;
+$listHeight: 250px;
+$listPadding: 5px;
+$listMargin: 5px;
+$detailViewWidth: 400px;
+$detailViewHeight: 400px;
+// $margin: 10px;
+// $borderRadius: 5px;
+$listRadius: 5px;
+
+@mixin userform($labelWidth: 15%) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    &--title {
+        font-weight: 600;
+        font-size: 18px;
+        text-align: center;
+    }
+    &--subtitle {
+        font-weight: 400;
+        font-size: 14px;
+        font-style: italic;
+        text-align: center;
+    }
+    & p {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: baseline;
+        & label {
+            width: $labelWidth;
+            text-align: right;
+        }
+        & span {
+            width: 30%;
+        }
+    }
+    & input {
+        width: 200px;
+        border: 1px solid $inputBorder;
+        border-radius: $borderRadius;
+        margin: $margin;
+    }
+    &--buttons {
+        width: 25%;
+    }
+    &--submit {
+        width: 100px;
+        background-color: $footerTextColor;
+        border-radius: $borderRadius;
+        margin: $margin calc($margin * 4);
+        &:hover {
+            background-color: $buttonHoverColor;
+            box-shadow: 0 0 5px 5px $footerShadowColor;
+        }
+    }
+    &--delete {
+        width: 100px;
+        color: $warningTextColor;
+        background-color: $warningBgColor;
+        border-radius: $borderRadius;
+        margin: $margin calc($margin * 4);
+        &:hover {
+            color: $footerInputColor;
+            background-color: $buttonHoverColor;
+            box-shadow: 0 0 5px 5px $footerShadowColor;
+        }        
+    }
+    &--back {
+        width: 100px;
+        background-color: $footerTextColor;
+        border-radius: $borderRadius;
+        margin: $margin;
+        color: $footerInputColor;
+        &:hover {
+            background-color: $buttonHoverColor;
+            box-shadow: 0 0 5px 5px $footerShadowColor;
+        }        
+    }
+}

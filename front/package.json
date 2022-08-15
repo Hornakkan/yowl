@@ -1,0 +1,30 @@
+{
+  "name": "front",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173",
+    "sass": "sass --watch ./src/assets/sass/style.scss:./src/assets/style.css",
+    "tail": "npx tailwindcss -i ./src/assets/input.css -o ./src/assets/output.css --watch",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+  },
+  "dependencies": {
+    "chart.js": "^3.9.1",
+    "tw-elements": "^1.0.0-alpha12",
+    "vue": "^3.2.37",
+    "vue-chartjs": "^4.1.1",
+    "vue-router": "^4.1.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.1",
+    "eslint": "^8.5.0",
+    "eslint-plugin-vue": "^9.0.0",
+    "tailwindcss": "^3.1.7",
+    "vite": "^3.0.4"
+  },
+  "description": "This template should help get you started developing with Vue 3 in Vite.",
+  "main": "tailwind.config.js",
+  "author": "",
+  "license": "ISC"
+}

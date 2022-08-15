@@ -1,0 +1,835 @@
+@import './utils/variables';
+@import './utils/keyframes';
+
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // color: $editText;
+    transition: all 0.5s ease-in-out;
+}
+
+body {
+    background-color: $appBgColor;
+    color: $footerInputColor;
+    // display: flex;
+    // flex-direction: column;
+    // height: 100vh;
+}
+
+#app {
+    color: black;
+    margin: 0 auto;
+    padding: 0;
+    height: 100vh;
+    font-weight: normal;
+    display: flex;
+    flex-direction: column;
+    // flex-wrap: wrap;
+    align-items: center;
+    // width: 80%;
+    background-color: $appBgColor;
+    width: 100%;    
+}
+
+main {
+    flex: 1 0 auto;
+    overflow-y: auto;
+    scrollbar-width: none;
+    overflow-x: hidden;
+    height: $mainHeight;
+    width: 100%;
+    max-width: 1920px;
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0; }
+}
+
+footer {
+    width: 100%;
+    // height: 15%;
+
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.footer {
+    flex-shrink: 0;
+    &--wrapper {
+        color: $footerTextColor;
+        width: 100%;
+        background-color: $footerBgColor;
+        border-radius: $borderRadius $borderRadius 0 0;
+        padding: 0 $padding;
+        & a {
+            text-decoration: none;
+            font-weight: 600;
+            color: $footerTextColor;
+            transition: 0.4s;
+        }        
+    }
+    &--social {
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        &--link {
+            & i {
+                color: $footerTextColor;
+                display: inherit;
+                font-size: 30px;
+                animation: all 0.5s ease-in-out;
+                background-color: transparent;
+                &#discord {
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                }
+                &:hover {
+                    font-size: 40px;
+                }
+            }
+            &:nth-child(even) {
+                margin: 0 50px;
+            }
+        }
+    }
+    &--newsletter {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin: $margin calc($margin * 2);
+        &--email {
+            margin: 0 calc($margin * 2);
+            padding: 0 $padding;
+            border: 1px solid $footerBorderColor;
+            border-radius: calc($borderRadius / 2);
+            color: $footerInputColor;
+            &:focus {
+                outline: 0;
+                box-shadow: 0 0 5px 5px $footerShadowColor;
+                color: $footerInputColor;
+                &::placeholder {
+                    color:transparent;
+                }
+            }
+        }
+        &--subscribe {
+            width: 80px;
+            border: 1px solid $footerBorderColor;
+            border-radius: 5px;
+            &:hover {
+                color: $footerTextColor;
+                box-shadow: 0 0 5px 5px $footerShadowColor;
+                text-shadow: 0 0 5px $footerShadowColor;
+            }
+        }
+        &--registered {
+            &--message {
+                text-align: center;
+                font-style: italic;
+                color: $footerTextColor;
+            }
+        }
+    }
+    &--disclaimer {
+        text-align: center;
+    }
+    &--links {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        & a:hover {
+            text-shadow: 0 0 5px $footerShadowColor;
+        }
+    }
+    &--copyright {
+        text-align: center;
+        font-size: $copyrightFontSize;
+        font-style: italic;
+        & a:hover {
+            text-shadow: 0 0 5px $footerShadowColor;
+        }
+    }
+}
+
+.about {
+    &--wrapper {
+        width: 100%;
+        height: 100%;
+    }
+    &--title {
+        width: 100%;
+        height: 5%;
+        font-size: 20px;
+        font-weight: bold;
+        color: $footerTextColor;
+        text-align: center;
+    }
+    &--subtitle {
+        width: 100%;
+        height: 5%;
+        font-size: 16px;
+        font-style: italic;
+        text-align: center;
+    }
+    &--team {
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        & ul {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+        &--member {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid $borderColor;
+            border-radius: calc($borderRadius / 2);
+            &:nth-child(odd) {
+                text-align: left;
+                padding-left: $padding;
+                background-image: $oddBgImage;
+            }
+            &:nth-child(even) {
+                text-align: right;
+                padding-right: $padding;
+                background-image: $evenBgImage;
+                margin: $margin 0;
+            }
+            &--name {
+                font-weight: 600;
+                font-size: 20px;
+                color: $aboutTextColor;
+                border-bottom: 1px solid $editText;
+                & span {
+                    color: $aboutTextColor;
+                    font-style: italic;
+                    font-size: 14px;
+                    & a {
+                        color: $aboutLink;
+                        &:hover {
+                            color: $footerBgColor;
+                            text-shadow: 0 0 5px gold;
+                        }
+                    }
+                }
+            }
+            &--content {
+                color: $aboutTextColor;
+            }
+        }
+    }
+}
+
+.api {
+    &--wrapper {
+        max-width: $appWidth;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: $margin auto;
+        height: 70vh;        
+        // overflow-y: scroll;
+    }
+    &--container {
+        display: flex;
+        flex-direction: column;
+        width: 49%;
+        height: 100%;
+        margin: 0 calc($margin / 4);
+    }
+    &--title {
+        width: 100%;
+        font-size: 20px;
+        font-weight: bold;
+        color: $footerTextColor;
+        text-align: center;
+    }
+    &--subtitle {
+        width: 100%;
+        font-size: 16px;
+        font-style: italic;
+        text-align: center;
+    }
+    &--routes {
+        width: 100%;
+        margin: $margin auto;
+        border: 2px solid $borderColor;
+        border-radius: $borderRadius;
+        padding: $padding;
+        background-color: $routesBgColor;
+        &#apiroutes {
+            height: 60px;
+            overflow: hidden;
+        }
+        &#apimodel {
+            overflow-y: auto;
+        }
+        &--title {
+            margin: $margin auto 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        &--route {
+            display: flex;
+            flex-direction: column;
+            margin: $margin;
+            &--phrase {
+                display: flex;
+                flex-direction: row;
+                border-bottom: 1px solid $borderColor;
+                border-radius: calc($borderRadius/2) calc($borderRadius/2) 0 0;
+                height: 30px;
+                &--verb {
+                    background-color: $verbBgColor;
+                    color: $verbTextColor;
+                    font-weight: 600;
+                    width: 80px;
+                    margin-right: calc($margin / 2) 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: calc($borderRadius/2) 0 0 0;
+                    &.get {
+                        background-color: $getBgColor;
+                    }
+                    &.post {
+                        background-color: $postBgColor;
+                    }
+                    &.put {
+                        background-color: $putBgColor;
+                    }
+                    &.delete {
+                        background-color: $deleteBgColor;
+                    }
+                }
+                &--uri {
+                    color: $uriTextColor;
+                    font-weight: 600;
+                    width: 100%;
+                    padding-left: $padding;
+                    border-radius: 0 calc($borderRadius/2) 0 0;
+                    &.get {
+                        border: 2px solid $getBgColor;
+                        background-color: lighten($getBgColor, 25%);
+                    }
+                    &.post {
+                        border: 2px solid $postBgColor;
+                        background-color: lighten($postBgColor, 40%);
+                    }
+                    &.put {
+                        border: 2px solid $putBgColor;
+                        background-color: lighten($putBgColor, 30%);
+                    }
+                    &.delete {
+                        border: 2px solid $deleteBgColor;
+                        background-color: lighten($deleteBgColor, 30%);
+                    }                    
+                }
+            }
+            &--content {
+                word-wrap: break-word;
+                padding: 0 $padding;
+                background-color: $routesContentBgColor;
+                border: 2px solid $borderColor;
+                border-top: transparent;
+                border-radius: 0 0 calc($borderRadius/2) calc($borderRadius/2);
+            }
+        &--model {
+            height: 22.5px;
+            overflow: hidden;
+            &--table {
+                margin-right: $margin;
+                font-size: 18px;
+                font-weight: 600;
+            }
+            &--content {
+                & ul {
+                    border: 1px solid $borderColor;
+                    border-radius: $borderRadius;
+                    padding: $padding;                
+                    & li {
+                        display: flex;
+                        flex-direction: row;
+                        &:nth-child(odd) {
+                            background-color: $routesContentBgColor;
+                        } 
+                        &:nth-child(even) {
+                            background-color: $ressourceListBg;
+                        } 
+                    }
+                }
+            }
+        }
+        }
+    }
+    &--ressource {
+        &--name {
+            width: 35%;
+            margin-right: $margin;
+            padding-left: $padding;
+            font-family: $ressourceFont;        
+        }
+        &--type {
+            font-family: $ressourceFont;
+            color: $ressourceTypeColor;
+        }
+    }
+}
+
+.active {
+    height: auto !important;
+    // overflow-y: scroll !important;
+}
+
+.activeroute {
+    height: auto !important;
+    overflow-y: scroll !important;
+}
+
+
+.warning {
+    &--message {
+        text-align: center;
+        color: $warningTextColor;
+        background-color: $warningBgColor;
+        border-radius: $borderRadius;
+    }
+}
+
+.success {
+    &--message {
+        text-align: center;
+        color: $successTextColor;
+        background-color: $successBgColor;
+        border-radius: $borderRadius;
+    }
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    &--greetings {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        align-items: center;
+        color: $greetingsTextColor;
+        color: $greetingsTextColor;
+    }
+    & label {
+        display: flex;
+        align-items: center;
+        margin-left: calc($margin / 2);
+        color: $footerTextColor;
+    }
+    &--a {
+        color: $editText;
+        text-decoration: none;
+        // width: 100%;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0;        
+        &:hover {
+            background-color: transparent;
+        }
+    }
+    &-wrapper {
+        // width: 100%;
+    }
+    &--login {
+        width: 100px;
+        background-color: $footerTextColor;
+        border-radius: $borderRadius;
+        margin: $margin;
+        &:hover {
+            color: $footerBgColor;
+            background-color: $buttonHoverColor;
+            box-shadow: 0 0 5px 5px $footerShadowColor;
+          }
+    }
+    &--logout {
+        width: 100px;
+        background-color: #f0749e;
+        border-radius: $borderRadius;
+        margin: $margin;
+        &:hover {
+            color: $footerBgColor;
+            background-color: $buttonHoverColor;
+            box-shadow: 0 0 5px 5px $footerShadowColor;
+          }
+    }
+    &--register {
+        width: 100px;
+        background-color: $footerTextColor;
+        border-radius: $borderRadius;
+        margin: $margin;
+        color: $footerInputColor;
+        &:hover {
+            color: $footerBgColor;
+            background-color: $buttonHoverColor;
+            box-shadow: 0 0 5px 5px $footerShadowColor;
+          }
+    }
+    &--admin {
+        width: 100px;
+        background-color: $footerTextColor;
+        border-radius: $borderRadius;
+        margin: $margin;
+        text-decoration: none;
+        color: $footerInputColor;
+        text-align: center;
+        & a:hover {
+            color: $footerBgColor;
+            background-color: transparent;
+        }
+        &:hover {
+            background-color: $buttonHoverColor;
+            box-shadow: 0 0 5px 5px $footerShadowColor;
+          }
+    }
+    &--email {
+        margin: $margin;
+        padding-left: 5px;
+        border: 1px solid $inputBorder;
+        border-radius: $borderRadius;
+        &:active {
+            outline: none;
+        }
+    }
+    &--password {
+        margin: $margin;
+        padding-left: 5px;
+        border: 1px solid $inputBorder;
+        border-radius: $borderRadius;
+    }
+}
+
+.register {
+    @include userform(30%);
+}
+
+.profile {
+    @include userform;
+}
+
+.forgot {
+    @include userform
+}
+
+.reset {
+    @include userform
+}
+
+.w-screen {
+    padding-left: 50px;
+    &.h-screen.bg-gray-600 {
+        width: 90vw;
+        margin-bottom: 20px;
+        height: auto;
+        flex: 1 0 auto;
+        &.flex.row.flex-wrap {
+            width: 100%;
+            height: auto;
+            padding: 0 7%;
+        }
+    }
+}
+
+.column.ml-2 {
+    border-left: 1px solid $editText;
+    width: 50%;
+    padding: 0 $padding;
+}
+
+img.object-cover.h-48.w-96 {
+    width: 50%;
+    object-fit: contain;
+}
+
+.text-white.indent-8.text-justify {
+    text-indent: unset;
+}
+
+.bg-white.shadow-xl {
+    border-radius: calc($borderRadius / 2);
+    padding-left: $padding;
+    & textarea {
+        &:focus {
+            outline: none !important;
+            border-color: transparent;
+        }
+    }
+}
+
+.flex.items-center.p-6.space-x-2 {
+    & button {
+        background-color: $footerTextColor;
+        border-radius: calc($borderRadius / 2);
+        width: 60px;
+        height: 30px;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        color: $footerInputColor;
+        &:hover {
+            color: $footerBgColor;
+            background-color: $buttonHoverColor;
+            box-shadow: 0 0 5px 5px $footerShadowColor;
+        }    
+    }
+}
+
+.flex.flex-row.justify-around {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    & .text-white {
+        color: $footerTextColor;
+    }
+}
+
+.searchfilterbar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-control.block.w-full {
+    &:focus {
+        outline: none !important;
+        border-color: transparent;
+        &::placeholder {
+            color: transparent;
+        }        
+    }
+}
+
+.bg-white.rounded-lg.border {
+    background-color: darken($footerBgColor, 10%);
+    & i {
+        margin: 0 $margin;
+        font-size: 25px;
+    }
+    & button {
+        margin: $margin;
+    }
+    & span {
+        color: $editText;
+    }
+}
+
+.m-2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    & button {
+        background-color: $footerTextColor;
+        width: 120px;
+        height: 30px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        color: $footerInputColor;
+        & i {
+            margin: 0 $margin;
+            font-size: 25px;
+        }
+        &:hover {
+            color: $footerBgColor;
+            background-color: $buttonHoverColor;
+            box-shadow: 0 0 5px 5px $footerShadowColor;
+        }
+    }
+}
+
+button.text-white, button.bg-gray-300.m-2.p-2.rounded, button.bg-blue-200.p-5.rounded-lg,
+ button.px-3.py-1.ml-2.bg-blue-300.rounded-lg, button.bg-blue-300.px-3.py-1.rounded-lg.my-4 {
+    background-color: $footerTextColor;
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: $footerInputColor;
+    &.absolute {
+        height: 20px;
+        top: 7px;
+    }
+    &:hover {
+        color: $footerBgColor;
+        background-color: $buttonHoverColor;
+        box-shadow: 0 0 5px 5px $footerShadowColor;
+    }
+}
+
+button.bg-blue-200.px-3.py-1 {
+    background-color: $footerTextColor;
+    margin-left: $margin;
+    border-radius: calc($borderRadius / 2);
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    color: $footerInputColor;
+    &.absolute {
+        height: 20px;
+        top: 7px;
+    }
+    &:hover {
+        color: $footerBgColor;
+        background-color: $buttonHoverColor;
+        box-shadow: 0 0 5px 5px $footerShadowColor;
+    }
+}
+
+.h-10.w-10.mr-2.bg-red-300.rounded-full {
+    color: $warningTextColor;
+    border: 1px solid $warningTextColor;
+    width: 25px;
+    height: 25px;
+    margin: $margin;
+    background-color: $warningBgColor;
+}
+
+.bg-gray-900.rounded-xl {
+    background-color: $footerBgColor;
+    border: 1px solid $footerBorderColor;
+}
+#newReview {
+    min-width: 450px;
+}
+
+form>.relative {
+    width: $searchBarMinWidth;
+    &:focus-within {
+        width: $searchBarMaxWidth;
+        &::placeholder {
+            color: transparent;
+        }
+    }
+}
+
+#default-search {
+    height: 30px;
+    &:focus-within {
+        &::placeholder {
+            color: transparent;
+        }
+    }    
+}
+
+#homeView {
+    // overflow-y: scroll;
+}
+
+#reviewPic {
+    width: 50%;
+    height: 150px;
+    overflow: hidden;
+}
+
+.logo--img {
+    width: 50%;
+}
+
+.carousel {
+    // width: $carouselWidth;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: $margin auto;
+}
+
+.w-full.px-16 {
+    color: $footerTextColor;
+}
+
+#bar-chart {
+    background-color: $routesBgColor;
+    border: 2px solid $footerTextColor;
+    border-radius: $borderRadius;
+}
+
+.h-48.flex.flex-col {
+    background-color: $footerBgColor;
+    border: 2px solid $footerTextColor;
+    border-radius: $borderRadius;
+    color: $footerTextColor;
+}
+
+.grid.grid-cols-4.gap-4.text-center.mb-4 {
+    & div {
+        background-color: $footerBgColor;
+        border: 2px solid $footerTextColor;
+        border-radius: $borderRadius;
+        color: $footerTextColor;    
+    }
+}
+
+.grid.grid-cols-1.gap-4.text-center.mb-4 {
+    & div {
+        & div {
+            color: $footerInputColor;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.neontext {
+    font-size: 4.2rem;
+    font-family: $headerFont;
+    animation: pulsate 2.5s ease-in-out infinite alternate;  
+    color: #fff;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px $neonColor,
+      0 0 82px $neonColor,
+      0 0 92px $neonColor,
+      0 0 102px $neonColor,
+      0 0 151px $neonColor;
+}
+
+@media screen and (max-width: 530px) {
+    footer {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .api--wrapper {
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .api--routes--route--model--content ul li {
+        flex-direction: column;
+    }
+}
