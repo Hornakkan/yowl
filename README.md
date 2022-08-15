@@ -1,8 +1,10 @@
-![MicrosoftTeams-image](https://user-images.githubusercontent.com/105637244/184215071-9d585440-a613-4223-bc1b-6ecad4077f2f.png)
+<img src="https://lh3.googleusercontent.com/pw/AL9nZEUfGK1V79yeXkxnity2FkV7kEPupn-gsWB1t-su3DtOuu58x5xtt8iSPWrqhwwIvz0BPfPk8Ph0WQMZoLC8BBzjDOr3Vct6joxg_SGe1e8cpgzvmR-RffwB1_h2LDIqu0_sXKEmYrCteicaSXxgCDJo=w1569-h934-no?authuser=0" />
+
+<b>YOWL project for Epitech school: Coding Academy 2022.</b>
 
 # Yowl: give your feedback on video games
 
-By Sebastien Lacour, Sebastien Palanicaouden, Anne-Sophie Madelaine-Toublanc and Marc Pollet
+By team Error 418: Sebastien Lacour, Sebastien Palanicaouden, Anne-Sophie Madelaine-Toublanc and Marc Pollet
 
 ## Headers
 
