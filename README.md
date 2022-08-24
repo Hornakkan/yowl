@@ -204,4 +204,4 @@ The purpose of this exercise was to create from scratch an online web applicatio
     
 ---------
 
-<p align="center"> # If you are here, thanks for your time ! </p>
+<p align="center"> # If you are here, thanks for your time.</p>
